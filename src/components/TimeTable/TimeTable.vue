@@ -4,7 +4,7 @@ import { dataSource, columns } from './data.ts'
 </script>
 
 <template>
-  <a-card hoverable :bordered="false" >
+  <a-card hoverable :bordered="false" style="width: 910px;height: 510px;">
     <a-table :dataSource="dataSource" :columns="columns" 
     bordered size="small" :pagination="false">
         <template #bodyCell="{ column, record }">
