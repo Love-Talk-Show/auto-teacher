@@ -6,7 +6,7 @@ import TimeTable from './components/TimeTable/TimeTable.vue'
 const showRandName = ref(false)
 const showTimeTable =ref(true)
 
-function menuClick(params:Object) {
+function menuClick(params:any) {
   switch (params?.key) {
     case 'randname':
       showRandName.value = true
