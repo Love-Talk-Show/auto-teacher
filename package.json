@@ -10,6 +10,9 @@
   },
   "dependencies": {
     "ant-design-vue": "4.x",
+    "canvas-confetti": "^1.9.2",
+    "echarts": "^5.4.3",
+    "randomcolor": "^0.6.2",
     "vite-plugin-singlefile": "^0.13.5",
     "vue": "^3.3.11"
   },
