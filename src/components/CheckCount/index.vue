@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { students } from '../../assets/student'
-import { ref,onMounted, computed  } from "vue";
+import { ref,onMounted, computed, watch  } from "vue";
 import randomColor from 'randomcolor'
+import confetti from 'canvas-confetti'
+
 
   const classNames = ref <Number[]>([])
   const currClass = ref<Number>(231)
@@ -23,6 +25,30 @@ import randomColor from 'randomcolor'
   const countIsdone = computed(()=>{
     return studentNames.value.filter((item)=>item.isdone).length
   })
+  // 当完成数等于学生总额时，触发彩屑！
+  watch(countIsdone,(newValue)=>{
+    if(newValue > 0 && newValue == 1){
+      // 动画持续时间（5秒）
+      const duration = 5 * 1000;
+      let animationEnd = Date.now() + duration;
+      const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+
+      let interval = setInterval(function() {
+        let timeLeft = animationEnd - Date.now();
+
+        if (timeLeft <= 0) {
+          return clearInterval(interval);
+        }
+
+        let particleCount = 50 * (timeLeft / duration);
+        confetti({ ...defaults, particleCount, origin: { x: randomInRange(0.2, 0.4), y: Math.random() - 0.2 } });
+        confetti({ ...defaults, particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } });
+      }, 80);
+    }
+  })
+  function randomInRange(min:Number, max:Number) {
+      return Math.random() * (max - min) + min;
+  }
 </script>
 
 <template>
