@@ -116,6 +116,19 @@ let students =[
     {"class":232,"name":"张明达","zf":0,"zfp":0,"yw":0,"ywp":0,"sx":0,"sxp":0,"yyp":0,"yyp":0,"zz":0,"zzp":0,"ls":0,"lsp":0,"dl":0,"dlp":0},
     
     ]
+
+const uniqueClasses = new Set(students.map(item => item.class))
+
+//获取班级[231,232]
+const classNames = [...uniqueClasses]
+
+// 获取班级学生名字['小明','小王','小红']
+function getStudentNames(className:Number) {
+    return  students.filter(item => item.class === className)
+                          .map(item => item.name);
+}
 export{
-    students
+    students,
+    classNames,
+    getStudentNames
 }
