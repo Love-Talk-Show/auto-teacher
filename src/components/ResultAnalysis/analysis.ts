@@ -1,18 +1,11 @@
-import { students } from '../../assets/student'
-const uniqueClasses = new Set(students.map(item => item.class))
-//获取班级[231,232]
-const classNames = [...uniqueClasses]
+import { students, } from "../../assets/student";
 
 // 获取班级学生成绩信息
 function getStudents(className:Number) {
     return  students.filter(item => item.class === className)
                           .map(item => item);
 }
-// 获取班级学生名字['小明','小王','小红']
-function getStudentNames(className:Number) {
-    return  students.filter(item => item.class === className)
-                          .map(item => item.name);
-}
+
 // 获取某学生的成绩信息
 function getScoresByName(studentName:String) {
     return  students.find(item => item.name === studentName)
@@ -57,9 +50,7 @@ function ldStudent(studentName:String) {
 }
 
 export{
-    classNames,
     getStudents,
-    getStudentNames,
     getScoresByName,
     ldStudent,
 }
