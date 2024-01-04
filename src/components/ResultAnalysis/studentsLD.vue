@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref,onMounted } from "vue"
-import { getStudentNames, ldStudent } from './analysis'
+import { ldStudent } from './analysis'
+import { getStudentNames } from "../../assets/student";
 import * as echarts from 'echarts'
 import { message } from 'ant-design-vue';
 
