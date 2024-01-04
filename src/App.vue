@@ -4,11 +4,13 @@ import RandomName1 from './components/RandomName/RandomName1.vue';
 import TimeTable from './components/TimeTable/TimeTable.vue'
 import ImportStudent from "./components/ImportStudent/ImportStudent.vue";
 import ResultAnalysis from './components/ResultAnalysis/ResultAnalysis.vue'
+import CheckCount from './components/CheckCount/index.vue'
 
 const showRandName = ref(false)
 const showTimeTable =ref(true)
 const showImportStudent =ref(false)
 const showResultAnalysis =ref(false)
+const showCheckCount =ref(false)
 
 function menuClick(params:any) {
   switch (params?.key) {
@@ -17,24 +19,35 @@ function menuClick(params:any) {
       showTimeTable.value = false
       showImportStudent.value = false
       showResultAnalysis.value = false
+      showCheckCount.value = false
       break;
     case 'timetable':
       showRandName.value = false
       showTimeTable.value = true
       showImportStudent.value = false
       showResultAnalysis.value = false
+      showCheckCount.value = false
       break
     case 'student':
       showRandName.value = false
       showTimeTable.value = false
       showImportStudent.value = true
       showResultAnalysis.value = false
+      showCheckCount.value = false
       break
     case 'analysis':
       showRandName.value = false
       showTimeTable.value = false
       showImportStudent.value = false
       showResultAnalysis.value = true
+      showCheckCount.value = false
+      break;
+    case 'checkcount':
+      showRandName.value = false
+      showTimeTable.value = false
+      showImportStudent.value = false
+      showResultAnalysis.value = false
+      showCheckCount.value = true
       break;
     default:
       break;
@@ -80,6 +93,7 @@ function menuClick(params:any) {
           <RandomName1 v-if="showRandName"/>
           <ImportStudent v-if="showImportStudent"/>
           <ResultAnalysis v-if="showResultAnalysis"/>
+          <CheckCount v-if="showCheckCount"/>
         </div>
 </template>
 
