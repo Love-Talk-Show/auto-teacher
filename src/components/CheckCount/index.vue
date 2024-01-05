@@ -27,7 +27,7 @@ import confetti from 'canvas-confetti'
   })
   // 当完成数等于学生总额时，触发彩屑！
   watch(countIsdone,(newValue)=>{
-    if(newValue > 0 && newValue == 1){
+    if(newValue > 0 && newValue == studentNames.value.length){
       // 动画持续时间（5秒）
       const duration = 5 * 1000;
       let animationEnd = Date.now() + duration;
