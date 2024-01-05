@@ -5,9 +5,9 @@ import * as echarts from 'echarts'
   const classNames = ref <Number[]>([])
   const currClass = ref<Number>(231)
 
-  const oneSchool = ref(500)
-  const twoSchool = ref(400)
-  const threeSchool =ref(300)
+  const oneGrade = ref(500)
+  const twoGrade = ref(400)
+  const threeGrade =ref(300)
 
   const circleEcharts = ref()
 
@@ -30,13 +30,10 @@ import * as echarts from 'echarts'
     <a-radio-group v-model:value="currClass" @change="getStudents">
       <a-radio v-for=" item in classNames " :value="item" size="large">{{ item }} 班</a-radio>
       <a-tooltip title="一本分数线">
-       <a-input-number v-model:value="oneSchool" :min="400" :max="600" size="small" style="width: 60px;margin-right: 15px;" ></a-input-number>
+       <a-input-number v-model:value="oneGrade" :min="400" :max="600" size="small" style="width: 60px;margin-right: 15px;" ></a-input-number>
       </a-tooltip>
       <a-tooltip title="二本分数线">
-       <a-input-number v-model:value="twoSchool" :min="300" :max="500" size="small" style="width: 60px;margin-right: 15px;" ></a-input-number>
-      </a-tooltip>
-      <a-tooltip title="三本分数线">
-       <a-input-number v-model:value="threeSchool" :min="200" :max="400" size="small" style="width: 60px;margin-right: 15px;" ></a-input-number>
+       <a-input-number v-model:value="twoGrade" :min="300" :max="500" size="small" style="width: 60px;margin-right: 15px;" ></a-input-number>
       </a-tooltip>
     </a-radio-group>
     <div ref="circleEcharts" style="width: 800px;height: 300px;"></div>
