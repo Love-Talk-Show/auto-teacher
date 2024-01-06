@@ -1,4 +1,5 @@
 import { students } from "../../assets/student";
+import { GradeConfig } from "../type.ts"
 
 // 获取班级学生成绩信息
 function getStudents(className:Number) {
@@ -58,19 +59,19 @@ function getGradeByClass(className:Number,oneGrade:Number,twoGrade:Number,subjec
   };
 }
 // 获取班级的堆叠柱状图
-function gradeEchart(className:Number,oneGrade:Number,twoGrade:Number) {
+function gradeEchartOption(gradeConfig:GradeConfig) {
   
   let tempData = {
-    zf: getGradeByClass(className,oneGrade,twoGrade,'zf'),
-    yw: getGradeByClass(className,oneGrade,twoGrade,'yw'),
-    sx: getGradeByClass(className,oneGrade,twoGrade,'sx'),
-    yy: getGradeByClass(className,oneGrade,twoGrade,'yy'),
-    zz: getGradeByClass(className,oneGrade,twoGrade,'zz'),
-    ls: getGradeByClass(className,oneGrade,twoGrade,'ls'),
-    dl: getGradeByClass(className,oneGrade,twoGrade,'dl')
+    zf: getGradeByClass(gradeConfig.className,gradeConfig.zf.oneGrade,gradeConfig.zf.twoGrade,'zf'),
+    yw: getGradeByClass(gradeConfig.className,gradeConfig.yw.oneGrade,gradeConfig.yw.twoGrade,'yw'),
+    sx: getGradeByClass(gradeConfig.className,gradeConfig.sx.oneGrade,gradeConfig.sx.twoGrade,'sx'),
+    yy: getGradeByClass(gradeConfig.className,gradeConfig.yy.oneGrade,gradeConfig.yy.twoGrade,'yy'),
+    zz: getGradeByClass(gradeConfig.className,gradeConfig.zz.oneGrade,gradeConfig.zz.twoGrade,'zz'),
+    ls: getGradeByClass(gradeConfig.className,gradeConfig.ls.oneGrade,gradeConfig.ls.twoGrade,'ls'),
+    dl: getGradeByClass(gradeConfig.className,gradeConfig.dl.oneGrade,gradeConfig.dl.twoGrade,'dl')
   }
 
-  return option = {
+  return {
     tooltip: {
       trigger: 'axis',
       axisPointer: {
@@ -117,10 +118,10 @@ function gradeEchart(className:Number,oneGrade:Number,twoGrade:Number) {
         emphasis: {
           focus: 'series'
         },
-        data: [ tempData.yw.twoGrade.length, tempData.sx.threeGrade.length, 
-          tempData.yy.threeGrade.length, tempData.ls.threeGrade.length,
-          tempData.zz.threeGrade.length, tempData.dl.threeGrade.length,
-          tempData.zf.threeGrade.length ]
+        data: [ tempData.yw.twoGrade.length, tempData.sx.twoGrade.length, 
+          tempData.yy.twoGrade.length, tempData.ls.twoGrade.length,
+          tempData.zz.twoGrade.length, tempData.dl.twoGrade.length,
+          tempData.zf.twoGrade.length ]
       },
       {
         name: '一本',
@@ -132,7 +133,10 @@ function gradeEchart(className:Number,oneGrade:Number,twoGrade:Number) {
         emphasis: {
           focus: 'series'
         },
-        data: [820, 832, 901, 934, 1290, 1330, 1320]
+        data: [ tempData.yw.oneGrade.length, tempData.sx.oneGrade.length, 
+          tempData.yy.oneGrade.length, tempData.ls.oneGrade.length,
+          tempData.zz.oneGrade.length, tempData.dl.oneGrade.length,
+          tempData.zf.oneGrade.length ]
       }
     ]
   }; 
@@ -142,7 +146,8 @@ export{
     getStudents,
     getScoresByName,
     ldStudent,
-    getGradeByClass
+    getGradeByClass,
+    gradeEchartOption
 }
   
   
