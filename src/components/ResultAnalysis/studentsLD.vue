@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref,onMounted } from "vue"
 import { ldStudent } from './analysis'
-import { getStudentNames } from "../../assets/student";
+import { getStudentNames,classNames } from "../../assets/student";
 import * as echarts from 'echarts'
 import { message } from 'ant-design-vue';
 
@@ -13,7 +13,7 @@ import { message } from 'ant-design-vue';
 
   onMounted(()=>{
     // 准备学生搜索数据
-    selectAllData.value = getStudentNames(231).map(i=>({
+    selectAllData.value = getStudentNames(classNames[0]).map(i=>({
       value:i,
       label:i
     }))

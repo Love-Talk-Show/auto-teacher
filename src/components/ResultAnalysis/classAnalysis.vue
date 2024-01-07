@@ -2,13 +2,14 @@
 import { ref,onMounted } from "vue"
 import { studentEchartOption } from './analysis'
 import * as echarts from 'echarts'
+import { classNames } from "../../assets/student";
 
 const classEchart = ref()
 
 let classChart
 onMounted(() => {
   classChart = echarts.init(classEchart.value)
-  classChart.setOption(studentEchartOption(231))
+  classChart.setOption(studentEchartOption(classNames[0]))
 })
 
 
